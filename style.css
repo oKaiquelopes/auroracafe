@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+      --bg:#FAFAF8; 
+      --card:#FFFFFF; 
+      --muted:#6B6B6B;
+      --accent:#2b2b2b; 
+      --accent-2:#b88d5b;
+      --accent-3:#baa88d; /*textos e btns do wecoffe*/
+      --accent-4: #6D4E0D; /*hover btns wecoffe*/
+      --glass: rgba(255,255,255,0.6);
+      font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    html,body{
+         padding-top: 50px;
+        height:100%;
+        margin:0;
+        background: var(--bg);
+        color:var(--accent);
+    }
+    a{
+        color:inherit;
+        text-decoration:none
+    }
+
+    /* Layout */
+    .container{
+        max-width:1100px;
+        margin:0 auto;
+        padding:24px
+    }
+    header{
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:12px 84px;
+    background-color:#fff;
+    position: fixed;     /* fixa no topo */
+    top: 0;
+    left: 0;
+    z-index: 100;        /* fica na frente de tudo */
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08); /* sombriiiinha elegante */
+    }
+    .brand{
+        display:flex;
+        align-items:center;
+    }
+    .logo{
+        width:90px;
+        height:90px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .logo img{
+        height:70px;
+    }
+    nav{
+        display:flex;
+        gap:16px;
+        align-items:center
+    }
+    .btn{
+        background:var(--accent);
+        color:#fff;
+        padding:10px 14px;
+        border-radius:10px;
+        border:0;cursor:pointer;
+        font-weight:600;
+    }
+    .ghost{
+        background:transparent;
+        border:1px solid rgba(0,0,0,0.06);
+        padding:8px 12px;
+        border-radius:10px;
+    }
+    .mobile-nav{
+        display:none;
+        align-items:center;
+    }
+    /* Hero */
+    .hero{
+        display:grid;
+        grid-template-columns:1fr 420px;
+        gap:32px;
+        align-items:center;
+        padding:40px 0;
+    }
+    .hero-text h2{
+        font-size:34px;
+        margin:0 0 8px;
+    }
+    .hero-text p{
+        color:var(--muted);
+        margin:0 0 20px;
+    }
+    .hero-card{
+        background:var(--card);
+        padding:20px;
+        border-radius:16px;
+        box-shadow:0 6px 30px rgba(20,20,20,0.05);
+        border: 1px solid black;
+        height: 250px;
+        max-width: 100%;
+    }
+    .hero-card img{
+        max-width: 100%;
+        max-height: 100px;
+        border-radius: 12px;
+    }
+
+    /* Catalog */
+    .catalog{
+        margin-top:30px;
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+        gap:18px;
+    }
+    .product{
+        background:var(--card);
+        padding:18px;
+        border-radius:14px;
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        transition:transform .28s ease,box-shadow .28s ease;
+    }
+    .product:hover{
+        transform:translateY(-6px);
+        box-shadow:0 8px 30px rgba(10,10,10,0.06);
+    }
+    .prod-media{
+        height:140px;
+        border-radius:10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:700;
+        color:var(--muted);
+    }
+    .prod-info{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .price{
+        font-weight:700;
+    }
+
+    /* Cart */
+    .cart-btn{
+        position:relative;
+    }
+    .cart-count{
+        position:absolute;
+        top:-8px;right:-8px;
+        background:var(--accent-2);
+        color:#fff;
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:12px;
+    }
+
+    .cart-panel{
+        position:fixed;
+        right:24px;
+        top:150px;
+        width:360px;
+        max-width:calc(100% - 48px);
+        background:var(--card);
+        padding:18px;
+        border-radius:12px;
+        box-shadow:0 14px 40px rgba(10,10,10,0.12);
+        transform:translateX(110%);
+        transition:transform .28s ease;
+        z-index:60;
+    }
+    .cart-panel.open{
+        transform:translateX(0);
+    }
+    .cart-item{
+        display:flex;
+        gap:10px;
+        align-items:center;
+        padding:8px 0;
+        border-bottom:1px dashed rgba(0,0,0,0.06);
+    }
+    .qty{
+        display:flex;
+        gap:6px;
+        align-items:center;
+    }
+    .small{
+        font-size:13px;
+        color:var(--muted);
+    }
+
+    /* Footer */
+    footer{text-align:center;
+        padding:28px 0;
+        color:var(--muted);
+        font-size:14px;
+    }
+
+/* TOAST: feedback ao adicionar produto */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px);
+  background: var(--accent, #3b2f2f); /* fallback se variável não existir */
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  z-index: 9999; /* garante que fique na frente */
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+
+
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{
+        grid-template-columns:1fr;
+    }
+      nav{
+        display:none
+    }
+      header{
+        gap:8px
+    }
+      .mobile-nav{
+        display:flex;gap:8px
+    }
+    }
+
+    /* Simple animations */
+    .fade-up{opacity:0;transform:translateY(8px);transition:all .6s cubic-bezier(.2,.9,.25,1)}
+    .fade-up.show{opacity:1;transform:translateY(0)}
+
+    /* Inputs & modal */
+    .input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+    .empty{color:var(--muted);text-align:center;padding:40px}

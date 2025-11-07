@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cafeteria — Minimal & Sophisticated</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Site da cafeteria. Pedidos via WhatsApp, design clean e responsivo." />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="img/aurora_cafe_logo1.svg" alt=""></div>
+      </div>
+      <nav>
+        <a href="">Sobre</a>
+        <a href="">Contato</a>
+        <button class="btn cart-btn" id="openCartBtn">Carrinho <span class="cart-count" id="cartCount">0</span></button>
+      </nav>
+      <div class="mobile-nav">
+        <button id="openCartBtnMobile" class="btn">Carrinho</button>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>O café que te abraça — simples, elegante e feito com cuidado.</h2>
+        <p style="margin-top: 3%;" >Peça online e receba em alguns minutos. Seleciona, confirma e manda direto pro WhatsApp da cafeteria com todos os detalhes.</p>
+        <div class="hero-card fade-up" id="heroCard" style="display: none;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div class="small">Destaque</div>
+              <div style="font-weight:700">Cappuccino Especial</div>
+            </div>
+
+          </div>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;gap:8px;">
+            <button style="display: none;" class="ghost" id="viewMenu">Ver Cardápio</button>
+            <button class="btn" id="addCart" onclick="addToCartById(1)">Adicionar</button>
+            <div style="text-align:right;">
+                <div class="price">R$ 8,50</div>
+                <div class="small">Tamanho P/M/G</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="menu">
+      <h3 style="margin-top:12px">Cardápio</h3>
+      <div class="catalog" id="catalog"></div>
+    </section>
+    <footer>
+      © <span id="year"></span> Cafeteria Aurora — Peça pelo site e confirme via WhatsApp.
+    </footer>
+  </div>
+  <!-- Cart panel -->
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="font-weight:700">Seu carrinho</div>
+      <div style="display:flex;gap:8px">
+        <button class="ghost" id="clearCartBtn" style="cursor: pointer;" >Limpar</button>
+        <button class="ghost" id="closeCart" style="cursor: pointer;" >Fechar</button>
+      </div>
+    </div>
+    <div id="cartItems"></div>
+    <div id="cartEmpty" class="empty">Seu carrinho está vazio.</div>
+    <div style="margin-top:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="small">Total</div>
+        <div style="font-weight:700" id="cartTotal">R$ 0,00</div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <input id="custName" class="input" placeholder="Seu nome" />
+        <input id="custPhone" class="input" placeholder="Seu celular (somente números)" />
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px">
+        <button class="btn" id="checkoutBtn">Finalizar pelo WhatsApp</button>
+        <button class="ghost" id="copyOrder">Copiar pedido</button>
+      </div>
+    </div>
+  </aside>
+  <div id="toast">✔ Produto adicionado ao carrinho</div>   
+  <script src="script.js"></script>
+</body>
+</html>
