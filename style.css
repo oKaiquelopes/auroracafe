@@ -209,6 +209,7 @@
         padding:28px 0;
         color:var(--muted);
         font-size:14px;
+        margin-top: 10%;
     }
 
 /* TOAST: feedback ao adicionar produto */
@@ -250,10 +251,12 @@
         display:none
     }
       header{
+        padding:12px 24px;
         gap:8px
     }
       .mobile-nav{
-        display:flex;gap:8px
+        display:flex;
+        gap:8px
     }
     }
 
