@@ -155,6 +155,7 @@
     /* Cart */
     .cart-btn{
         position:relative;
+        background-color: var(--bg);
     }
     .cart-count{
         position:absolute;
