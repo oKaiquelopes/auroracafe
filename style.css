@@ -259,6 +259,9 @@
         display:flex;
         gap:8px
     }
+    .mobile-nav .btn{
+        background-color: var(--bg);
+    }
     }
 
     /* Simple animations */
