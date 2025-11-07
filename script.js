@@ -15,6 +15,7 @@ const PRODUCTS = [
 // ===== Estado do carrinho =====
 const cart = {};
 const WA_NUMBER = '5515996916423';
+let toastTimer = null;
 
 // helpers
 const q = sel => document.querySelector(sel);
@@ -82,7 +83,7 @@ function updateCartUI(){
   });
   q('#cartTotal').textContent = formatBRL(total);
   q('#cartCount').textContent = totalQty;
-  q('#cartTotalItems').textContent = totalQty;
+  //q('#cartTotalItems').textContent = totalQty;
 }
 
 function changeQty(id, delta){
@@ -153,8 +154,19 @@ renderCatalog(); updateCartUI();
 // ===== TOAST =====
 function showToast() {
   const toast = document.getElementById('toast');
+
+  // Limpa (cancela) qualquer timer anterior
+  // Isso garante que se o usuário clicar 5x, o toast não vai "piscar"
+  if (toastTimer) {
+    clearTimeout(toastTimer);
+  }
+
+  // Adiciona a classe .show para exibir o toast
   toast.classList.add('show');
-  setTimeout(() => {
+
+  // Define um NOVO timer para remover a classe
+  toastTimer = setTimeout(() => {
     toast.classList.remove('show');
-  }, 2000);
+    toastTimer = null; // Reseta a variável do timer
+  }, 2000); // 2 segundos
 }
